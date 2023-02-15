@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="col-11 modal-title text-center" id="staticBackdropLabel">Your Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                    <div class="float-lg-end col-md text-center col-sm text-center">
+                        <div class="p-2">
+                            <img src="images.png" alt="profilepic" height="245px" width="305px">
+                        </div>
+                    </div>
+                <div class="row mt-5">
+                    
+                    <div class="col-lg-10 col-md-10">
+                        
+                        <form action="">
+                            <div class="mb-3">
+                                <label for="fullname" class="form-label">Name:</label>
+                                <input type="text" class="form-control" id="fullname" placeholder="First Name" value="Nandini Laxmi Priya" required>
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="designation" class="form-label">Designation:</label>
+                                <input type="text" class="form-control" id="designation" placeholder="" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address:</label>
+                                <textarea class="form-control" id="address" rows="2" required></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <label for="contactNo" class="form-label">Contact Number:</label>
+                                    <input type="text" class="form-control" id="contactNo" placeholder="Contact Number" required>
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="mail" class="form-label">Email:</label>
+                                    <input type="email" class="form-control" id="mail" required>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-3">
+                               
+                                    <label for="url" class="form-label">Link:</label>
+                                    <input type="text" class="form-control" id="url" required>
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="lang" class="form-label">Language:</label>
+                                    <input type="text" class="form-control" id="lang" placeholder="Language" required>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="mb-3">
+                                <label for="profilepic" class="form-label">Profile Picture:</label>
+                                <input type="file" class="form-control-sm" id="profilepic" required>
+                            </div>
+                        </form>
+                       
+                    </div> 
+                </div>
+               
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
