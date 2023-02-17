@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 48
+      }
+      </style>
+
+
+<script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
+</head>
+<body>
+    <header class="clearfix">
+    <nav class="navbar navbar-expand-lg navbar fixed-top navbar-dark bg-dark">
+        <div class="container-fluid">
+          <h5 class="text-white">Patternfly</h5>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="ProfilePage.html">Home</a>
+              </li>
+             
+            </ul>
+                <div class="d-flex flex-row-reverse nav-item text-white">
+                  <a class="d-flex nav-link" href="index.html"><span class="material-symbols-outlined">
+                    logout 
+                    </span>
+                    <p>sign out</p>
+                </a>
+                  </div>
+          </div>
+         
+        </div>
+      </nav>
+      </header>
+      <br>
+      <main class="mt-5">
+        <div class="">
+            <div class="row gx-2">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                    <div class="d-flex flex-column">
+                        <div class="p-1 m-1">
+                          <div class="d-flex justify-content-end"><button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          <span class="material-symbols-outlined">
+                            edit_square
+                            </span></button></div>
+                            <div class="d-flex justify-content-center"><img src="images.png" alt="Profile" style="height: 205px; width: 245px;"></div>
+                            <h5 class="d-flex justify-content-center mx-5">Nandini Laxmi Priya</h5>
+                            <p class="d-flex justify-content-center mx-5">Developer Trainee</p>
+                                <ul class="justify-content-start" style="list-style-type:none;">
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">location_on</span><p>Hyderabad</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">call</span><p>9879076540</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">mail</span><p>www@gmail.com</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">link</span><p>jnjnk.jdkl</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">g_translate</span><p>English</p></li>
+                                </ul>
+                                <div class="d-flex justify-content-center">
+                                  <a href=""></a><i class='fa fa-twitter' style='font-size:28px;color:rgb(102, 162, 240)'></i>
+                                  <i class="fa fa-soundcloud" style='font-size:28px;color:rgb(224, 109, 15)'></i>
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-6">
+                    <div class="col">
+                        <div class="row">
+                          <div class="card col-lg-12">
+
+                            <div class="card-body">
+                              <h5 class="card-title">BACKGROUND</h5>
+                            </div>
+                          </div>
+                          <div class="card col-lg-12">
+                            <div class="card-body">
+                              <div class="d-flex">
+                              <span class="material-symbols-outlined me-4">
+                                badge
+                                </span><h5 class="card-title">ABOUT</h5>
+                                </div>
+                              <p class="card-text me-5 mx-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                 It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-lg-12">
+                            <div class="card-body">
+                              <div class="d-flex">
+                                <span class="material-symbols-outlined me-4">
+                                  apartment
+                                  </span><h5 class="card-title">WORK EXPERIENCE</h5>
+                                  </div>
+                                  <p class="card-text me-5 mx-5">
+                                    PROJECT,<span class="text-primary">Java,React</span>
+                                  </p>
+                                  <p class="d-flex card-text me-5 mx-5" style="opacity: 0.5;">
+                                    Dec,2013-Dec,2014 <span class="material-symbols-outlined mx-2">
+                                      pace
+                                      </span>1 year
+                                  </p>
+                                  <p class="card-text me-5 mx-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                  <P>
+                                    <ul class="card-text me-5 mx-5" style="list-style-type: circle;">
+                                      <li>Random point 1</li>
+                                      <li>Random point 1</li>
+                                      <li>Random point 1</li>
+                                    </ul>
+                                  </P>
+                            </div>
+                          </div>
+                          <div class="card col-lg-12">
+                            <div class="card-body">
+                              <div class="d-flex">
+                              <span class="material-symbols-outlined me-4">
+                                design_services
+                                </span><h5 class="card-title">SKILLS</h5>
+                                </div>
+                              <p class="card-text me-5 mx-5">
+                                 <span class="badge bg-primary border rounded">DB1101-BasicSQL</span>
+                                <span class="badge bg-primary border rounded mx-2">CS2011-Java Introduction</span>
+                              </p>
+                              
+                            </div>
+                          </div>
+                          <div class="card col-lg-12">
+                            <div class="card-body">
+                              <div class="d-flex">
+                              <span class="material-symbols-outlined me-4">
+                                school
+                                </span><h5 class="card-title">EDUCATION</h5>
+                                </div>
+                                <p class="card-text me-5 mx-5">
+                                  <b>Bachelor of Technology,</b><span class=""> IIT Kanpur</span>
+                                </p>
+                                <p class="d-flex card-text me-5 mx-5" style="opacity: 0.5;">
+                                  June,2011-Jan,2014
+                                </p>
+                                <p class="d-flex card-text me-5 mx-5">
+                                  <i>CGPA:Random</i>
+                                </p>
+                                <p class="d-flex card-text me-5 mx-5">
+                                <span class="badge bg-primary border rounded">SQL</span>
+                                <span class="badge bg-primary border rounded mx-2">Java OOPS</span>
+                                </p>
+                            </div>
+                          </div>
+                          <div class="card col-lg-12">
+                            <div class="card-body">
+                              <div class="d-flex">
+                              <span class="material-symbols-outlined me-4">
+                                favorite
+                                </span><h5 class="card-title">INTERESTS</h5>
+                                </div>
+                              <p class="card-text me-5 mx-5">
+                                <span class="badge bg-primary border rounded">Singing</span>
+                                <span class="badge bg-primary border rounded mx-2">Playing Chess</span>
+                              </p>
+                              
+                            </div>
+                          </div>
+                          <div class="position-relative">
+                            <div class="position-absolute bottom-0 end-0">
+                              <img src="BottomRightButton.png" alt="btright" srcset="">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+  <!--POP UP MODAL-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="col-11 modal-title text-center" id="staticBackdropLabel">Your Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                    <div class="float-lg-end col-md text-center col-sm text-center">
+                        <div class="p-2">
+                            <img src="images.png" alt="profilepic" height="245px" width="305px">
+                        </div>
+                    </div>
+                <div class="row mt-5">
+                    
+                    <div class="col-lg-10 col-md-10">
+                        
+                        <form action="">
+                            <div class="mb-3">
+                                <label for="fullname" class="form-label">Name:</label>
+                                <input type="text" class="form-control" id="fullname" placeholder="First Name" value="Nandini Laxmi Priya" required>
+                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="designation" class="form-label">Designation:</label>
+                                <input type="text" class="form-control" id="designation" placeholder="" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address:</label>
+                                <textarea class="form-control" id="address" rows="2" required></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-3">
+                                    <label for="contactNo" class="form-label">Contact Number:</label>
+                                    <input type="text" class="form-control" id="contactNo" placeholder="Contact Number" required>
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="mail" class="form-label">Email:</label>
+                                    <input type="email" class="form-control" id="mail" required>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mb-3">
+                               
+                                    <label for="url" class="form-label">Link:</label>
+                                    <input type="text" class="form-control" id="url" required>
+                                </div>
+                                <div class="col mb-3">
+                                    <label for="lang" class="form-label">Language:</label>
+                                    <input type="text" class="form-control" id="lang" placeholder="Language" required>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="mb-3">
+                                <label for="profilepic" class="form-label">Profile Picture:</label>
+                                <input type="file" class="form-control-sm" id="profilepic" required>
+                            </div>
+                        </form>
+                       
+                    </div> 
+                </div>
+               
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+      </main>
+      <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

@@ -105,11 +105,11 @@
                         <input type="file" class="form-control" id="profilepic" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="password" required>
+                        <label for="spassword" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="spassword" required>
                     </div>
                     <div class="mb-3 mt-5 d-grid col-6 mx-auto text-center">
-                        <button class="btn btn-primary" type="submit">Sign Up</button>
+                        <button class="btn btn-primary" type="submit" onclick="store()" id="signup">Sign Up</button>
                     </div>
                 </form>
                
@@ -126,5 +126,6 @@
 });
     </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="signup.js"></script>
 </body>
 </html>
