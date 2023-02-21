@@ -25,6 +25,60 @@
   function preventBack(){window.history.forward();}
   setTimeout("preventBack()", 0);
   window.onunload=function(){null};
+
+  window.onload = async function(){
+    let username = ""
+    const up = new URLSearchParams(location.search);
+    for(const [key,value] of up)
+    {
+      if(key==="username")
+      {
+        username = value
+        break;
+      }
+    }
+    let uu = document.getElementById("fullname").value;
+    console.log(uu,"uu")
+    console.log(username,"heheh")
+    let flag=false;
+    await fetch("./userDetails.json").then(res=>
+        res.json()
+        )
+    .then(data=>{
+        console.log(data)
+        for(let u of data)
+        {
+            if(u.username === username)
+            {
+                flag=true
+                console.log("hehehe")
+                let lastname = u.lastname;
+                let designation = u.designation;
+                let address = u.address
+                let contactno = u.contactno
+                let mail = u.mail
+                let url = u.url
+                let language = u.language
+                let pic = u.pic;
+                document.getElementById("pname").innerHTML=username+" "+lastname;
+                document.getElementById("pdesignation").innerHTML=designation;
+                document.getElementById("paddress").innerHTML=address;
+                document.getElementById("pcontactNo").innerHTML=contactno;
+                document.getElementById("pmail").innerHTML=mail;
+                document.getElementById("plink").innerHTML=url;
+                document.getElementById("planguage").innerHTML=language;
+                const output = document.querySelector("#profilepic1")
+                const div = document.createElement("div");
+                div.innerHTML=`<img src="${pic}" style="height: 205px; width: 245px;"/>`
+                output.appendChild(div);
+                break
+            } 
+        }
+    })
+    .catch(error => 
+        console.error(error)
+        );
+  }
 </script>
 
 </head>
@@ -67,15 +121,15 @@
                           <span class="material-symbols-outlined">
                             edit_square
                             </span></button></div>
-                            <div class="d-flex justify-content-center" id="profilepic1"><img src="images.png" alt="Profile" style="height: 205px; width: 245px;"></div>
-                            <h5 class="d-flex justify-content-center mx-5">Nandini Laxmi Priya</h5>
-                            <p class="d-flex justify-content-center mx-5">Developer Trainee</p>
+                            <div class="d-flex justify-content-center" id="profilepic1"><!--<img src="images.png" alt="Profile" style="height: 205px; width: 245px;">--></div>
+                            <h5 class="d-flex justify-content-center mx-5" id="pname">Nandini Laxmi Priya</h5>
+                            <p class="d-flex justify-content-center mx-5" id="pdesignation">Developer Trainee</p>
                                 <ul class="justify-content-start" style="list-style-type:none;">
-                                <li class="d-flex"><span class="material-symbols-outlined me-1">location_on</span><p>Hyderabad</p></li>
-                                <li class="d-flex"><span class="material-symbols-outlined me-1">call</span><p>9879076540</p></li>
-                                <li class="d-flex"><span class="material-symbols-outlined me-1">mail</span><p>www@gmail.com</p></li>
-                                <li class="d-flex"><span class="material-symbols-outlined me-1">link</span><p>jnjnk.jdkl</p></li>
-                                <li class="d-flex"><span class="material-symbols-outlined me-1">g_translate</span><p>English</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">location_on</span><p id="paddress">Hyderabad</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">call</span><p id="pcontactNo">9879076540</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">mail</span><p id="pmail">www@gmail.com</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">link</span><p id="plink">jnjnk.jdkl</p></li>
+                                <li class="d-flex"><span class="material-symbols-outlined me-1">g_translate</span><p id="planguage">English</p></li>
                                 </ul>
                                 <div class="d-flex justify-content-center">
                                   <a href=""></a><i class='fa fa-twitter' style='font-size:28px;color:rgb(102, 162, 240)'></i>
@@ -140,6 +194,7 @@
                                 </span><h5 class="card-title">SKILLS</h5>
                                 </div>
                               <p class="card-text me-5 mx-5">
+                                
                                  <span class="badge bg-primary border rounded">DB1101-BasicSQL</span>
                                 <span class="badge bg-primary border rounded mx-2">CS2011-Java Introduction</span>
                               </p>
@@ -206,7 +261,7 @@
             <div class="container">
                     <div class="float-lg-end col-md text-center col-sm text-center">
                         <div class="p-2" id="profilepic1">
-                            <img src="images.png" alt="profilepic" height="245px" width="305px">
+                            <!--<img src="images.png" alt="profilepic" height="245px" width="305px">-->
                         </div>
                     </div>
                 <div class="row mt-5">
@@ -271,5 +326,6 @@
       </main>
       <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
       <!-- <script src="profile.js"></script> -->
+      <script src="Json_Js.js"></script>
 </body>
 </html>

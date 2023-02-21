@@ -28,6 +28,11 @@
             font-family: lato;
         }
     </style>
+    <script>
+        function preventBack(){window.history.forward();}
+        setTimeout("preventBack()", 0);
+        window.onunload=function(){null};
+      </script>
 </head>
 <body>
     <div class="container">
@@ -43,15 +48,15 @@
             
             <div class="col-lg-6">
                 
-                <form action="">
+                <form action="http://127.0.0.1:5501/form-submit" method="get">
                     <div class="mb-3">
                         <label for="fname" class="form-label">First Name:</label>
-                        <input type="text" class="form-control" id="fname" placeholder="First Name" required>
+                        <input type="text" class="form-control" id="fname" placeholder="First Name" name="username" required>
                         
                     </div>
                     <div class="mb-3">
                         <label for="lname" class="form-label">Last Name:</label>
-                        <input type="text" class="form-control" id="lname" placeholder="Last Name" required>
+                        <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lastname" required>
                         
                     </div>
                     <label for="dob" class="form-label">Date of Birth:</label>
@@ -59,7 +64,7 @@
                       
                        
                         <div class="input-group date" id="datepicker">
-                            <input type="text" class="form-control" id="dob" placeholder="mm/dd/yyyy" required>
+                            <input type="text" class="form-control" id="dob" placeholder="mm/dd/yyyy" name="dob" required>
                             <span class="input-group-append">
                               <span class="input-group-text bg-light d-block">
                                 <i class="fa fa-calendar"></i>
@@ -70,46 +75,51 @@
                     </div>
                     <div class="mb-3">
                         <label for="eid" class="form-label">Employee Id:</label>
-                        <input type="text" class="form-control" id="eid" placeholder="Employee Id Number" required>
+                        <input type="text" class="form-control" id="eid" placeholder="Employee Id Number" name="eid" required>
                         
                     </div>
                     <div class="mb-3">
                         <label for="designation" class="form-label">Designation:</label>
-                        <input type="text" class="form-control" id="designation" placeholder="" required>
+                        <input type="text" class="form-control" id="designation" placeholder="" name="designation" required>
                     </div>
                     <div class="mb-3">
                         <label for="mail" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="mail" required>
+                        <input type="email" class="form-control" id="mail" name="mail" required>
                         
                     </div>
                     <div class="mb-3">
                         <label for="contactNo" class="form-label">Contact Number:</label>
-                        <input type="text" class="form-control" id="contactNo" placeholder="Contact Number" required>
+                        <input type="text" class="form-control" id="contactNo" placeholder="Contact Number" name="contactNo" required>
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address:</label>
-                        <textarea class="form-control" id="address" rows="2" required></textarea>
+                        <textarea class="form-control" id="address" rows="2" name="address" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="lang" class="form-label">Language:</label>
-                        <input type="text" class="form-control" id="lang" placeholder="Language" required>
+                        <!-- <input type="text" class="form-control" id="lang" placeholder="Language" name="language" required> -->
+                        <select class="form-select" name="language">
+                            <option name="" value="0" selected>Select Language</option>
+                            <option name="English" value="English">English</option>
+                            <option name="Hindi" value="Hindi">Hindi</option>
+                      </select>
                     </div>
                     <label for="url" class="form-label">Link:</label>
                     <div class="input-group mb-3">
                        
                         <span class="input-group-text" id="urlspan">https://</span>
-                        <input type="text" class="form-control" id="url" required>
+                        <input type="text" class="form-control" id="url" name="url" required>
                     </div>
                     <div class="mb-3">
                         <label for="profilepic" class="form-label">Profile Picture:</label>
-                        <input type="file" class="form-control" id="profilepic" required>
+                        <input type="file" class="form-control" id="profilepic" name="file" required>
                     </div>
                     <div class="mb-3">
                         <label for="spassword" class="form-label">Password:</label>
-                        <input type="password" class="form-control" id="spassword" required>
+                        <input type="password" class="form-control" id="spassword" name="password" required>
                     </div>
                     <div class="mb-3 mt-5 d-grid col-6 mx-auto text-center">
-                        <button class="btn btn-primary" type="submit" onclick="store()" id="signup">Sign Up</button>
+                        <button class="btn btn-primary" type="submit" id="signup">Sign Up</button>
                     </div>
                 </form>
                
@@ -130,6 +140,7 @@
     <!-- <script src="signup.js"></script> -->
     <!-- <script src="profile.js"></script> -->
     <!-- <script src="signup.js"></script> -->
+    <!-- <script type="module" src="Store.js"></script> -->
 
 </body>
 </html>

@@ -1,10 +1,1 @@
-[
-    {
-        "username":"admin",
-        "password":"admin"
-    },
-    {
-        "username":"vineetks",
-        "password":"vineetks"
-    }
-]
+[{"username":"admin","password":"admin","lastname":"beehyv","dateOfbirth":"02/15/1994","empid":"1000","designation":"Senior Developer","mail":"admin@gmail.com","contactno":"9375529654","address":"MazidBanda, Hyderabad","language":"English","url":"admin.com","pic":"admin.jpeg"},{"username":"Nandini","password":"nandy","lastname":"Gandham","dateOfbirth":"06/10/2001","empid":"1015","designation":"Developer Intern","mail":"nandini.p@beehy.com","contactno":"8986787853","address":"Hyderabad","language":"English","url":"https://artofheart.com","pic":"naruto.jpeg"}]

@@ -1,8 +1,11 @@
+
+let samuser = {}
 async function check(e)
 {
 e.preventDefault()
-let username = document.getElementById('name').value;
-let password = document.getElementById('password').value;
+ let username = document.getElementById('name').value;
+ let password = document.getElementById('password').value;
+ let flag = true;
 await fetch("./userDetails.json").then(res=>
         res.json()
         )
@@ -10,37 +13,29 @@ await fetch("./userDetails.json").then(res=>
         console.log(data)
         for(let u of data)
         {
-            console.log(typeof u.username)
-            console.log(typeof u.password)
-            console.log(typeof username)
-            console.log(typeof password)
-            if(u.username.localeCompare(username) && u.password.localeCompare(password))
+            if(u.username === username && u.password === password)
             {
+                flag=false
                 console.log("hehehe")
-                window.location.href="http://127.0.0.1:5500/ProfilePage.html";
-            }
-            else{
+                window.location.href="http://127.0.0.1:5500/ProfilePage.html?username="+username;
+                return
+            } 
+        }
+        if(flag)
+        {
                 console.log("not hehehe")
-            }
+                alert("Invalid username or password Or User doesn't exists") 
         }
 
     })
     .catch(error => 
         console.error(error)
         );
-//    window.location.href="http://127.0.0.1:5500/ProfilePage.html";
 }
 
-// data.forEach(post =>{
-//     console.log(post)
-//     if(username === post.username && password === post.password)
-//     {
-//         console.log("hehe")
-//         alert('You are logged in '+username)
-//         window.location.href="http://127.0.0.1:5500/ProfilePage.html";
-       
-        
-//     }else{
-//         alert(`user doesn't exists`)
-//     }
-// })
+// if(window.location.href === "http://127.0.0.1:5500/ProfilePage.html")
+// {
+//     console.log("hehe in profile")
+//     console.log(samuser)
+//     window.location.href = "http://127.0.0.1:5500/index.html"
+// }
