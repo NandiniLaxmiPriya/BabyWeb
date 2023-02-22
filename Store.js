@@ -198,6 +198,16 @@ app.get('/form-edit',function(req,res){
     // store.set('editUser',obj)
     // console.log(store.get('editUSer'))
     console.log(obj)
+
+        if(obj.econtactNo.length!==10 || isNaN(econtactNo))
+        {
+            let urll = "http://127.0.0.1:5500/ProfilePage.html?eusername="+efname;
+            //res.send(`<script>alert("contact number must be 10 digit ");</script>`)
+            // res.redirect("http://127.0.0.1:5500/ProfilePage.html?eusername="+efname);
+            
+            return
+        }
+        else{
     let flag=true;
   
     if(!fs.existsSync("editUser.json"))
@@ -214,6 +224,7 @@ app.get('/form-edit',function(req,res){
     }
 
     res.redirect("http://127.0.0.1:5500/ProfilePage.html?eusername="+efname);
+}
 })
 
 
