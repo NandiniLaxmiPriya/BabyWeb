@@ -49,7 +49,7 @@ const fs = require("fs")
 const app = express();
 
 const bodyparser = require("body-parser");
-
+// const store = require("store")
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 
@@ -163,4 +163,58 @@ res.header('Pragma', 'no-cache');
     }
 }
 });
+
+
+app.get('/form-edit',function(req,res){
+
+    console.log("hehehhehheeh")
+   // console.log(req.query,"lol")
+    //res.send(req.query)
+    let obj = {}
+    let efname = req.query.efname;
+    let edesignation = req.query.edesignation;
+    let eaddress = req.query.eaddress;
+    let econtactNo = req.query.econtactNo;
+    let email = req.query.email;
+    let elanguage = req.query.elanguage;
+    let epic = req.query.epic;
+    let elink = req.query.elink;
+    // console.log(efname)
+    // console.log(edesignation)
+    // console.log(eaddress)
+    // console.log(econtactNo)
+    // console.log(email)
+    // console.log(elanguage)
+    // console.log(epic)
+    
+    obj.efname = efname;
+    obj.edesignation = edesignation;
+    obj.eaddress = eaddress;
+    obj.econtactNo = econtactNo;
+    obj.email = email;
+    obj.elanguage = elanguage;
+    obj.epic = epic;
+    obj.elink = elink;
+    // store.set('editUser',obj)
+    // console.log(store.get('editUSer'))
+    console.log(obj)
+    let flag=true;
+  
+    if(!fs.existsSync("editUser.json"))
+    {
+        fs.closeSync(fs.openSync('editUser.json','w'));
+    }
+    const file = fs.readFileSync("editUser.json")
+
+    if(file.length == 0)
+    {
+        fs.writeFileSync("editUser.json",JSON.stringify([obj]))
+    }else{
+        fs.writeFileSync("editUser.json",JSON.stringify([obj]))
+    }
+
+    res.redirect("http://127.0.0.1:5500/ProfilePage.html?eusername="+efname);
+})
+
+
 app.listen(5501)
