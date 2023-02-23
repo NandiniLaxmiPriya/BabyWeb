@@ -9,9 +9,11 @@
         
 
 <script>
-    function preventBack(){window.history.forward();}
-    setTimeout("preventBack()", 0);
-    window.onunload=function(){null};
+    history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+          localStorage.clear();
+          history.pushState(null, null, document.URL);
+        })
   </script>
   
     </head>

@@ -23,15 +23,95 @@
 
 
 <script>
-  function preventBack(){window.history.forward();}
-  setTimeout("preventBack()", 0);
-  window.onunload=function(){null};
+  // function preventBack(){window.history.forward();}
+  // setTimeout("preventBack()", 0);
+  // window.onload=function(){
+  //   console.log("hehehin onload e")
+  //   console.log(window.localStorage.getItem("usersList"),"heheheh")
+    
+  //   setTimeout(window.history.forward(), 0);
+  //   // null
+  // };
+  history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+  const up = new URLSearchParams(location.search);
+    let lusername=""
+    let leusername=""
+    for(const [key,value] of up)
+    {
+      if(key==="username")
+      {
+        lusername = value
+        break;
+      }
+      else if(key==="eusername")
+      {
+        leusername = value
+        break;
+      }
+    }
+   // console.log(window.localStorage.getItem("usersList"),"heheheh")
+    let lobj = JSON.parse(window.localStorage.getItem("usersList"))
+    let leobj = JSON.parse(window.localStorage.getItem("eusersList"))
+    let luser = lobj.username;
+    let leuser = leobj.efname;
+    
+    // console.log(luser,"loggined user")
+    if(lusername === luser)
+    {
+      console.log("YEsssssssssssssss")
+        history.pushState(null, null, document.URL);
+    }else  if(leusername === leuser)
+    {
+      console.log("YEsssssssssssssss in le")
+        history.pushState(null, null, document.URL);
+    }
+   
+});
 
-//   const fed = document.getElementById("signout")
-//   fed.addEventListener('change',function()
-//   {
-//     sessionStorage.clear();
-//   })
+
+  // if(window.history.back())
+  // {
+  //   console.log("rueeee")
+  // }
+
+ function signout()
+  {
+    
+    localStorage.clear();
+    const up = new URLSearchParams(location.search);
+    let lusername=""
+    let leusername=""
+    for(const [key,value] of up)
+    {
+      if(key==="username")
+      {
+        lusername = value
+        break;
+      }
+      else if(key==="eusername")
+      {
+        leusername = value
+        break;
+      }
+    }
+    let lobj = JSON.parse(window.localStorage.getItem("usersList"))
+    let leobj = JSON.parse(window.localStorage.getItem("eusersList"))
+   // let luser = lobj.username;
+    // console.log(luser,"loggined user")
+    history.pushState(null, null, document.URL);
+    if(!lobj && !leobj)
+    {
+      window.location.href="http://127.0.0.1:5500/index.html";
+      // history.pushState(null, null, document.URL);
+        // window.addEventListener('popstate', function () {
+          
+        //   history.pushState(null, null, document.URL);
+        // })
+        console.log("YEsssssssssssssss in out")
+    }
+    
+  }
 //   if (sessionStorage.getItem('AuthenticationState') === null) {
 //     window.location.href="http://127.0.0.1:5500/index.html";
 // }
@@ -70,6 +150,7 @@
             {
                 flag=true
                 console.log("hehehe")
+                let obj = {};
                 let lastname = u.lastname;
                 let designation = u.designation;
                 let address = u.address
@@ -79,6 +160,15 @@
                 let language = u.language
                 let pic = u.pic;
                 imgsrc=u.pic;
+                obj.username = username;
+                obj.designation = designation;
+                obj.address = address;
+                obj.contactno = contactno;
+                obj.mail = mail;
+                obj.url = url;
+                obj.language = language;
+                obj.pic = pic;
+                localStorage.setItem("usersList",JSON.stringify(obj))
                 document.getElementById("pname").innerHTML=username+" "+lastname;
                 document.getElementById("pdesignation").innerHTML=designation;
                 document.getElementById("paddress").innerHTML=address;
@@ -110,6 +200,7 @@
         console.log(u)
       if(u.efname === eusername)
       {
+        let obj={}
         console.log("lolo inside ifi")
         let efname = u.efname;
         let edesignation = u.edesignation;
@@ -120,6 +211,37 @@
         let epic = u.epic;
         let elink = u.elink;
         imgsrc = u.epic;
+        obj.efname = efname;
+        obj.edesignation = edesignation;
+        obj.eaddress = eaddress;
+        obj.econtactNo = econtactNo;
+        obj.elanguage = elanguage;
+        obj.epic = epic;
+        obj.elink = elink;
+        localStorage.setItem("eusersList",JSON.stringify(obj))
+        console.log(localStorage.getItem("usersList"))
+        let temp = JSON.parse(localStorage.getItem("usersList"))
+        console.log(temp.username,"mememememmeme")
+        let tempusername=temp.username;
+        if(econtactNo.length!==10 || isNaN(econtactNo))
+        {
+          alert("contact number must be 10 digit number")
+          
+         window.location.href="http://127.0.0.1:5500/ProfilePage.html?username="+tempusername;
+        }else if(!isNaN(efname)){
+          alert("Name must must not contain number")
+          
+         window.location.href="http://127.0.0.1:5500/ProfilePage.html?username="+tempusername;
+        }else if(!isNaN(edesignation)){
+          alert("Designation must must not contain number")
+          
+         window.location.href="http://127.0.0.1:5500/ProfilePage.html?username="+tempusername;
+        }else if(!isNaN(elanguage)){
+          alert("Language must must not contain number")
+          
+         window.location.href="http://127.0.0.1:5500/ProfilePage.html?username="+tempusername;
+        }
+        else{
         document.getElementById("pname").innerHTML=efname;
         document.getElementById("pdesignation").innerHTML=edesignation;
         document.getElementById("paddress").innerHTML=eaddress;
@@ -136,6 +258,7 @@
                        $('#my_image').attr('src',imgsrc)
                 })
         break;
+        }
       }
     }
     })
@@ -166,11 +289,11 @@
              
             </ul>
                 <div class="d-flex flex-row-reverse nav-item text-white">
-                  <a class="d-flex nav-link" href="index.html" id="signout"><span class="material-symbols-outlined">
+                  <button class="d-flex nav-link btn btn-link"" type="button" id="signout" onclick="signout()"><span class="material-symbols-outlined">
                     logout 
                     </span>
                     <p>sign out</p>
-                </a>
+                  </button>
                   </div>
           </div>
          

@@ -50,17 +50,20 @@ const app = express();
 
 const bodyparser = require("body-parser");
 // const store = require("store")
+const LocalStorage = require('node-localstorage').LocalStorage,
+localStorage = new LocalStorage('./scratch');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 
 app.get('/SignUp',function(req,res){
     res.sendFile(__dirname+"/SignUp.html")
 })
+let username ="";
 app.get('/form-submit',function(req,res){
 
     let obj={}
   //  console.log(req.query)
-    let username = req.query.username;
+    username = req.query.username;
     let password = req.query.password
     let lastname = req.query.lastname
     let dateOfbirth = req.query.dob
@@ -90,7 +93,17 @@ app.get('/form-submit',function(req,res){
         let year = d.getFullYear();
         year = 2023-year;
         console.log(year)
-       if(year<20){
+        if(!isNaN(username) || !isNaN(lastname))
+        {
+            res.send(`<script>alert("FirstName or LastName shouldnot contain numbers "); window.location.href = "http://127.0.0.1:5500/SignUp.html";</script>`)
+                return
+        }
+        else if(!isNaN(designation))
+        {
+            res.send(`<script>alert("Designation shouldnot contain numbers "); window.location.href = "http://127.0.0.1:5500/SignUp.html";</script>`)
+                return
+        }
+       else if(year<20){
             res.send(`<script>alert("user must be atleast 20years old"); window.location.href = "http://127.0.0.1:5500/SignUp.html";</script>`)
                 return
         }else  if(isNaN(obj.empid))
@@ -103,7 +116,7 @@ app.get('/form-submit',function(req,res){
             return
         }
         else{
-
+            // localStorage.setItem("usersList",JSON.stringify(obj))
   let flag=true;
   
     if(!fs.existsSync("userDetails.json"))
@@ -198,17 +211,31 @@ app.get('/form-edit',function(req,res){
     // store.set('editUser',obj)
     // console.log(store.get('editUSer'))
     console.log(obj)
-
-        if(obj.econtactNo.length!==10 || isNaN(econtactNo))
-        {
-            let urll = "http://127.0.0.1:5500/ProfilePage.html?eusername="+efname;
-            //res.send(`<script>alert("contact number must be 10 digit ");</script>`)
-            // res.redirect("http://127.0.0.1:5500/ProfilePage.html?eusername="+efname);
-            
-            return
-        }
-        else{
     let flag=true;
+        // if(econtactNo.length!==10 || isNaN(econtactNo))
+        // {
+        // //     // let urll = "http://127.0.0.1:5500/ProfilePage.html?username="+username;
+        // //     // res.send(`<script>alert("contact number must be 10 digit ");window.location.href =${urll};</script>`)
+        // //     // console.log(username,"i am username")
+        // //     // res.redirect("http://127.0.0.1:5500/ProfilePage.html?username="+username);
+        // //     // console.log(username,"i am username")
+        // //     console.log("localstorage ,,,",localStorage.getItem("usersList"))
+        // //     // res.render('view', { errormessage: 'your message' });
+            
+        // //     // return
+        // res.send(`<script>alert("contact number must be 10 digit ");window.location.href ="http://127.0.0.1:5500/index.html";</script>`)
+            
+        // }
+        // else if(isNaN(efname)){
+        //     res.send(`<script>alert("Enter proper value for Name without numbers ");window.location.href ="http://127.0.0.1:5500/index.html";</script>`)
+        // }
+        // else if(!isNaN(edesignation)){
+        //     res.send(`<script>alert("Enter proper values for Designation without numbers");window.location.href ="http://127.0.0.1:5500/index.html";</script>`)
+        // }
+        // else if(!isNaN(elanguage)){
+        //     res.send(`<script>alert("Enter proper values for for Language without numbers");window.location.href ="http://127.0.0.1:5500/index.html";</script>`)
+        // }else{
+    
   
     if(!fs.existsSync("editUser.json"))
     {
@@ -222,9 +249,10 @@ app.get('/form-edit',function(req,res){
     }else{
         fs.writeFileSync("editUser.json",JSON.stringify([obj]))
     }
-
+    
     res.redirect("http://127.0.0.1:5500/ProfilePage.html?eusername="+efname);
-}
+// }
+        
 })
 
 
