@@ -29,9 +29,11 @@
         }
     </style>
     <script>
-        // function preventBack(){window.history.forward();}
-        // setTimeout("preventBack()", 0);
-        // window.onunload=function(){null};
+       history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+          localStorage.clear();
+          history.pushState(null, null, document.URL);
+        })
       </script>
 </head>
 <body>
@@ -107,7 +109,7 @@
                     <label for="url" class="form-label">Link:</label>
                     <div class="input-group mb-3">
                        
-                        <span class="input-group-text" id="urlspan">https://</span>
+                        <!-- <span class="input-group-text" id="urlspan">https://</span> -->
                         <input type="text" class="form-control" id="url" name="url" required>
                     </div>
                     <div class="mb-3">

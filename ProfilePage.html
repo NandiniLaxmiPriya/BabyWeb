@@ -52,17 +52,25 @@ window.addEventListener('popstate', function () {
     }
    // console.log(window.localStorage.getItem("usersList"),"heheheh")
     let lobj = JSON.parse(window.localStorage.getItem("usersList"))
-    let leobj = JSON.parse(window.localStorage.getItem("eusersList"))
     let luser = lobj.username;
-    let leuser = leobj.efname;
+    let leuser;
+    if(window.localStorage.getItem("eusersList"))
+    {
+      let leobj = JSON.parse(window.localStorage.getItem("eusersList"))
+      leuser = leobj.efname;
+    }
+    
+   
+    
     
     // console.log(luser,"loggined user")
-    if(lusername === luser)
+    if(lusername !== luser)
     {
       console.log("YEsssssssssssssss")
         history.pushState(null, null, document.URL);
-    }else  if(leusername === leuser)
+    }else  if(leusername !== leuser)
     {
+      console.log(leuser,leusername)
       console.log("YEsssssssssssssss in le")
         history.pushState(null, null, document.URL);
     }
@@ -100,15 +108,16 @@ window.addEventListener('popstate', function () {
    // let luser = lobj.username;
     // console.log(luser,"loggined user")
     history.pushState(null, null, document.URL);
-    if(!lobj && !leobj)
+    if(lobj===null && leobj===null)
     {
       window.location.href="http://127.0.0.1:5500/index.html";
-      // history.pushState(null, null, document.URL);
-        // window.addEventListener('popstate', function () {
+      history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+          console.log("YEsssssssssssssss in out")
+          history.pushState(null, null, document.URL);
           
-        //   history.pushState(null, null, document.URL);
-        // })
-        console.log("YEsssssssssssssss in out")
+        })
+        
     }
     
   }
